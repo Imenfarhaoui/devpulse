@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: devpulse
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/devpulse_db}
+    username: ${DB_USERNAME:devpulse}
+    password: ${DB_PASSWORD:devpulse_local_password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8082
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:devpulse-secret-key-devpulse-monitoring-saas-platform-2026-very-secure-key}
+    expiration-ms: 86400000
+    refresh-expiration-ms: 604800000
